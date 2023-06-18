@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+nike.access_nike_employee,access_nike_employee,nike.model_nike_employee,base.group_user,1,1,1,1
+nike.access_nike_order,access_nike_order,nike.model_nike_order,base.group_user,1,1,1,1
+nike.access_nike_product_line,access_nike_product_line,nike.model_nike_product_line,base.group_user,1,1,1,1
+nike.access_nike_client,access_nike_client,nike.model_nike_client,base.group_user,1,1,1,1
+nike.access_nike_product,access_nike_product,nike.model_nike_product,base.group_user,1,1,1,1

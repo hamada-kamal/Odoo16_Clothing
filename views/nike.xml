@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_employee" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">nike.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="employee_form_view" model="ir.ui.view">
+            <field name="name">nike.employee.form</field>
+            <field name="model">nike.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="phone"/>
+                                <field name="salary"/>
+                            </group>
+                            <group>
+                                <field name="photo" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="employee_tree_view" model="ir.ui.view">
+            <field name="name">nike.employee.tree</field>
+            <field name="model">nike.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="salary"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_client" model="ir.actions.act_window">
+            <field name="name">Client</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">nike.client</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="client_form_view" model="ir.ui.view">
+            <field name="name">nike.client.form</field>
+            <field name="model">nike.client</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="address"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="client_tree_view" model="ir.ui.view">
+            <field name="name">nike.client.tree</field>
+            <field name="model">nike.client</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_product" model="ir.actions.act_window">
+            <field name="name">Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">nike.product</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="product_form_view" model="ir.ui.view">
+            <field name="name">nike.product.form</field>
+            <field name="model">nike.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_tree_view" model="ir.ui.view">
+            <field name="name">nike.product.tree</field>
+            <field name="model">nike.product</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_order" model="ir.actions.act_window">
+            <field name="name">Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">nike.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="order_form_view" model="ir.ui.view">
+            <field name="name">nike.order.form</field>
+            <field name="model">nike.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="order_date"/>
+                                <field name="order_maker"/>
+                                <field name="order_owner"/>
+                            </group>
+                            <field name="line">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="qty"/>
+                                    <field name="product_price" readonly="1"/>
+                                    <field name="sub_total" readonly="1"/>
+                                </tree>
+                            </field>
+                            <group>
+                                <field name="total" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="order_tree_view" model="ir.ui.view">
+            <field name="name">nike.order.tree</field>
+            <field name="model">nike.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="order_owner"/>
+                    <field name="total"/>
+                    <field name="order_maker"/>
+                    <field name="order_date"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <menuitem id="nike" name="Nike"/> <!--parent menu in the top beside Apps and Settings-->
+        <menuitem id="nike_operations" name="Operations" parent="nike"/> <!--unclickable menu-->
+
+        <menuitem id="emp_id" name="Employees" parent="nike_operations"
+                  action="action_employee"/> <!--unclickable menu-->
+        <menuitem id="cli_id" name="Clients" parent="nike_operations" action="action_client"/> <!--unclickable menu-->
+        <menuitem id="pro_id" name="Products" parent="nike_operations" action="action_product"/> <!--unclickable menu-->
+        <menuitem id="ord_id" name="Orders" parent="nike_operations" action="action_order"/> <!--unclickable menu-->
+<!--        <menuitem id="pro_line_id" name="Product Line" parent="nike_operations"-->
+<!--                  action="action_product_line"/> &lt;!&ndash;unclickable menu&ndash;&gt;-->
+
+    </data>
+</odoo>

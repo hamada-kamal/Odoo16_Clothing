@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="Nike_Template_Report_Id">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <!-- <t t-call="report.external_layout"> -->
+                    <div class="page">
+                        <h2>Nike Clothing Report</h2>
+
+                        <table style="text-align:center;" class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="doc">
+                                    <tr>
+                                        <td t-esc="doc.name"/>
+                                        <td t-esc="doc.price"/>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <!-- QWeb Reports -->
+        <!-- NAME & FILE_NAME should be the same -->
+        <!-- This will add "Print action btn" to the product form view to print the report -->
+        <report
+                id="Nike_Report_Id"
+                model="nike.product"
+                report_type="qweb-pdf"
+                string="Nike Products"
+                name="nike.Nike_Template_Report_Id"
+                file="nike.Nike_Template_Report_Id"
+        />
+
+
+    </data>
+</odoo>

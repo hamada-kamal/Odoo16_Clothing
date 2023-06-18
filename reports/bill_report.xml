@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="order_Template_Report_Id">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.internal_layout">
+                        <!-- <t t-call="report.external_layout"> -->
+                        <div class="page">
+                            <h1 style="text-align:center;margin-bottom:30px">bill Report</h1>
+                            <hr/>
+                            <h3>Employee:
+                                <small t-esc="doc.order_maker.name"/>
+                            </h3>
+                            <h3>Client:
+                                <small t-esc="doc.order_owner.name"/>
+                            </h3>
+                            <h3>Date:
+                                <small t-esc="doc.order_date"/>
+                            </h3>
+                            <h2>
+                                <table style="text-align:left;margin-top:50px" class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Sub Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <t t-foreach="doc.line" t-as="l">
+                                            <tr>
+                                                <td t-esc="l.name.name"></td>
+                                                <td t-esc="l.name.price"></td>
+                                                <td t-esc="l.qty"></td>
+                                                <td t-esc="l.sub_total"></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+
+                                <h3 style="margin-top:50px">Total:
+                                    <small t-esc="doc.total"/>
+                                    L.E
+                                </h3>
+                            </h2>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- QWeb Reports -->
+        <!-- NAME & FILE_NAME should be the same -->
+        <!-- This will add "Print action btn" to the product form view to print the report -->
+        <report
+                id="order_Report_Id"
+                model="nike.order"
+                report_type="qweb-pdf"
+                string="Nike Order"
+                name="nike.order_Template_Report_Id"
+                file="nike.order_Template_Report_Id"
+        />
+
+
+    </data>
+</odoo>
