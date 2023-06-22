@@ -8,6 +8,7 @@
         'views/nike.xml',
         'reports/report.xml',
         'reports/bill_report.xml',
+        'wizards/item_wizard.xml',
 
     ],
 

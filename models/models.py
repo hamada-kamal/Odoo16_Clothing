@@ -50,17 +50,6 @@ class product_line(models.Model):
         for line in self:
             line.product_price = line.name.price
 
-    # @api.onchange('name','qty')
-    # def update_sub_total(self):
-    #     if self.name:
-    #         print("self: ",self.name.price)
-    #         self.sub_total = self.name.price * self.qty
-
-    # @api.onchange('qty')
-    # def update_sub_total2(self):
-    #     if self.name:
-    #         self.sub_total = self.name.price * self.qty
-
     name = fields.Many2one('nike.product', string="Product", required=True)
     qty = fields.Integer(string="Quantity", required=True, default=1)
     order_id = fields.Many2one('nike.order', string='Order Owner', invisible=True)
@@ -75,12 +64,7 @@ class order(models.Model):
     _rec_name = 'order_owner'
     @api.onchange('line')
     def calc_order_price(self):
-        # if self.line:             #self.line >>>> the lines of this order
-        #     t=0.0
-        #     for l in self.line:
-        #         # print(l.name.name)
-        #         t+=l.name.price*l.qty
-        #     self.total=t
+
         for order in self:
             order.total = sum(l.sub_total for l in order.line)
             print("this is self: ",order.total)
