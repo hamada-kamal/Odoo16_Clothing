@@ -3,6 +3,7 @@ from odoo import api, fields, models
 
 class Wiz(models.TransientModel):
     _name = 'wiz.wiz'
+    _description = "Nike Wizard"
 
     product_id = fields.Many2one(
         comodel_name='nike.product',

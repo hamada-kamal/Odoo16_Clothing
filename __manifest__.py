@@ -4,10 +4,11 @@
     "depends": [],
 
     "data": [
+        'security/nike_security.xml',
         'security/ir.model.access.csv',
-        'views/nike.xml',
         'reports/report.xml',
         'reports/bill_report.xml',
+        'views/nike.xml',
         'wizards/item_wizard.xml',
 
     ],

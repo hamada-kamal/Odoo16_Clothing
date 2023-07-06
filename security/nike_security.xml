@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="nike_security_category" model="ir.module.category">
+           <field name="name">Nike Roles</field>
+       </record>
+
+        <record id="nike_staff" model="res.groups">
+            <field name="name">Staff</field>
+            <field name="category_id" ref="nike_security_category"/>
+<!--            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        </record>
+
+        <record id="nike_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="nike_security_category"/>
+<!--            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+        </record>
+
+    </data>
+</odoo>

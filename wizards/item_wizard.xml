@@ -22,16 +22,15 @@
             </field>
         </record>
 
-        <record id="action_wiz" model="ir.actions.act_window">
-            <field name="name">Show Data</field>
-            <field name="type">ir.actions.act_window</field>
+        <record id="action_nike_wiz" model="ir.actions.act_window">
+            <field name="name">Show Product Data</field>
             <field name="res_model">wiz.wiz</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
 
-        <menuitem id="wiz_menu_id" name="Get Product Data" parent="nike_operations" action="action_wiz"/>
+        <menuitem id="wiz_menu_id" name="Get Product Data" parent="nike_operations" action="action_nike_wiz"/>
 
     </data>
 </odoo>
