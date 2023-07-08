@@ -67,7 +67,6 @@ class order(models.Model):
 
         for order in self:
             order.total = sum(l.sub_total for l in order.line)
-            print("this is self: ",order.total)
     order_maker = fields.Many2one(comodel_name="nike.employee", string="Employee", required=True)
     order_owner = fields.Many2one(comodel_name="nike.client", string="Client", required=True)
     line = fields.One2many("nike.product_line", 'order_id', required=True)

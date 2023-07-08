@@ -3,12 +3,17 @@
     <data>
 
         <template id="order_Template_Report_Id">
+
+            <xpath expr="." position="inside">
+                <link href="/nike/static/css/style.css" rel="stylesheet" type="text/css"/>
+            </xpath>
+
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="doc">
-                    <t t-call="web.internal_layout">
+                    <t t-call="web.external_layout">
                         <!-- <t t-call="report.external_layout"> -->
                         <div class="page">
-                            <h1 style="text-align:center;margin-bottom:30px">bill Report</h1>
+                            <h1 style="text-align:center;margin-bottom:30px">bill Reporttt</h1>
                             <hr/>
                             <h3>Employee:
                                 <small t-esc="doc.order_maker.name"/>
@@ -54,17 +59,14 @@
             </t>
         </template>
 
-        <!-- QWeb Reports -->
-        <!-- NAME & FILE_NAME should be the same -->
-        <!-- This will add "Print action btn" to the product form view to print the report -->
-        <report
-                id="order_Report_Id"
-                model="nike.order"
-                report_type="qweb-pdf"
-                string="Nike Order"
-                name="nike.order_Template_Report_Id"
-                file="nike.order_Template_Report_Id"
-        />
+
+        <record id="order_Report_Id" model="ir.actions.report">
+            <field name="name">Print Order Report</field>
+            <field name="model">nike.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">nike.order_Template_Report_Id</field>
+            <field name="report_file">nike.order_Template_Report_Id</field>
+        </record>
 
 
     </data>

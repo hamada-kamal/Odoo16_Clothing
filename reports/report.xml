@@ -30,18 +30,14 @@
             </t>
         </template>
 
-        <!-- QWeb Reports -->
-        <!-- NAME & FILE_NAME should be the same -->
-        <!-- This will add "Print action btn" to the product form view to print the report -->
-        <report
-                id="Nike_Report_Id"
-                model="nike.product"
-                report_type="qweb-pdf"
-                string="Nike Products"
-                name="nike.Nike_Template_Report_Id"
-                file="nike.Nike_Template_Report_Id"
-        />
 
+        <record id="Nike_Report_Id" model="ir.actions.report">
+            <field name="name">Print Product Report</field>
+            <field name="model">nike.product</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">nike.Nike_Template_Report_Id</field>
+            <field name="report_file">nike.Nike_Template_Report_Id</field>
+        </record>
 
     </data>
 </odoo>

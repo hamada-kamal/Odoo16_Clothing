@@ -17,5 +17,18 @@
 <!--            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
         </record>
 
+        <record id="nike_rule_1" model="ir.rule">
+            <field name="name">rule 1 show product that price >= 100</field>
+            <field ref="model_nike_product" name="model_id"/>
+            <field name="domain_force">[('price', '>=', 100)]</field>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('nike_staff'))]"/>
+            <!--<field name="global" eval="1"/> -->
+        </record>
+
     </data>
 </odoo>
